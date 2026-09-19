@@ -1,0 +1,1018 @@
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-NL-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-NL-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+* {
+
+box-sizing: border-box;
+
+font-family: "Vazirmatn", sans-serif;
+
+}
+
+
+body {
+
+margin: 0;
+
+padding: 20px;
+
+background-color: #f5f5f5;
+
+font-family: "Vazirmatn", sans-serif;
+
+-webkit-font-smoothing: antialiased;
+
+-moz-osx-font-smoothing: grayscale;
+
+}
+
+
+.main-container {
+
+width: 100%;
+
+max-width: 1050px;
+
+height: 917px;
+
+margin: 0 auto;
+
+background: #ffffff;
+
+padding: 0;
+
+border-radius: 8px;
+
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+overflow: hidden;
+
+}
+
+
+/* کانتینر هدر */
+
+.header-tabs {
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px 0 24px; /* پدینگ پایین صفر شد تا خط به کف متصل شود */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* سطر اول: عنوان و فلش SVG */
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-flash {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.header-txt {
+  color: #424242;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* سطر دوم: لیست تب‌ها */
+.tabs-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+}
+
+/* استایل دکمه‌های تب */
+.tabs-list button {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 0 12px 0;
+  position: relative;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.tabs-list button:hover {
+  color: #36459b;
+}
+
+.tabs-list button.active {
+  color: #36459b;
+  font-weight: 700;
+}
+
+/* خط نشان‌دهنده تب فعال */
+.tabs-list button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* قرارگیری دقیق روی border-bottom کانتینر */
+  right: 0;
+  left: 0;
+  height: 2px;
+  background-color: #36459b;
+  border-radius: 2px 2px 0 0;
+}
+
+/* کدهای CSS کانتینر .tab-content و کارت‌های بازخورد */
+
+
+.tab-content {
+
+width: 1050px;
+
+height: 845px;
+
+padding: 16px 24px;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 16px;
+
+overflow-y: auto;
+
+flex: 1;
+
+}
+
+
+/* نوار ابزار بالا */
+
+.feedback-toolbar {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+margin-bottom: 8px;
+
+}
+
+
+.action-buttons {
+
+display: flex;
+
+gap: 8px;
+
+}
+
+
+.icon-btn {
+
+border: none;
+
+background: transparent;
+
+padding: 0;
+
+cursor: pointer;
+
+}
+
+
+.add-feedback-btn {
+
+display: flex;
+
+align-items: center;
+
+gap: 6px;
+
+background: transparent;
+
+border: none;
+
+color: #36459B;
+
+font-size: 14px;
+
+font-weight: 500;
+
+cursor: pointer;
+
+letter-spacing: 0.1%;
+
+vertical-align: middle;
+
+}
+.add-sign{
+    margin-top: 8px;
+}
+
+/* کانتینر اصلی کارت */
+
+.feedback-card {
+
+background-color: #F0F4FA;
+
+width: 1012px;
+
+height: 225px;
+
+border-radius: 12px;
+
+padding: 16px;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 12px;
+
+box-sizing: border-box;
+
+
+}
+
+
+/* ردیف پاسخ شامل عنوان بیرون و کادر سفید */
+
+.reply-wrapper {
+
+display: flex;
+
+align-items: center;
+
+color: #00002C;
+
+font-size: 14px;
+
+letter-spacing: 0%;
+
+gap: 8px;
+
+width: 100%;
+
+}
+
+
+/* متن "پاسخ به:" خارج از کادر */
+
+.reply-badge {
+
+color: #00002C;
+width: 49px;
+height: 16px;
+font-weight: 400;
+
+font-size: 14px;
+letter-spacing: 0%;
+white-space: nowrap;
+
+flex-shrink: 0;
+
+}
+
+
+/* کادر سفید اصلی */
+
+.reply-banner {
+
+width: 932px;
+
+height: 44px;
+
+display: flex;
+
+align-items: center;
+
+gap: 12px;
+
+background: #FFFFFF;
+
+border-radius: 20px;
+
+padding: 6px 12px;
+
+height: 44px;
+
+flex: 1; /* پر کردن باقی‌مانده عرض */
+
+box-sizing: border-box;
+
+overflow: hidden;
+
+}
+
+.reply-user {
+
+display: flex;
+
+align-items: center;
+
+gap: 6px;
+
+font-weight: 400;
+
+color: #424242;
+
+white-space: nowrap;
+
+flex-shrink: 0;
+
+font-size: 14px;
+
+line-height: 16px;
+
+}
+
+.avatar-circle {
+
+width: 30px;
+
+height: 30px;
+
+border-radius: 50%;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+font-size: 11px;
+
+font-weight: 700;
+
+color: #C8F9ED;
+
+flex-shrink: 0;
+
+}
+
+
+.green-bg {
+
+background-color: #C8F9ED;
+
+color: #424242;
+
+}
+
+
+.reply-text {
+
+color: #00002C;
+
+font-weight: 400;
+
+font-size: 14px;
+
+line-height: 16px;
+
+white-space: nowrap;
+
+overflow: hidden;
+
+text-overflow: ellipsis;
+
+letter-spacing: 0%;
+
+}
+
+/* تنظیم چیدمان دکمه‌ها دقیقاً بر اساس ترتیب کد HTML */
+
+.action-buttons {
+
+display: flex;
+
+gap: 8px;
+
+direction: ltr; /* ترتیب خوانش عناصر از چپ به راست بر اساس کد HTML */
+
+}
+
+.action-buttons .icon-btn svg {
+
+direction: ltr; 
+
+}
+
+.line-divider {
+    width: calc(100% + 32px); /* جبران پدینگ چپ و راست */
+    margin-right: -16px;       /* لبه راست کارت */
+    margin-left: -16px;        /* لبه چپ کارت */
+    border: none;
+    margin-top: 0px;
+    border-top: 1px solid #C9CCD3;
+}
+.user-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0px;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0px;
+    transform: translateY(-4px); /* تنظیم ارتفاع متمایل به بالا */
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 10%;
+    border: 1.5px solid #FDD4C7;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: #00002C;
+    white-space: nowrap;
+}
+/* بخش سمت چپ */
+.user-bar-left {
+    display: flex;
+    align-items: center;
+    transform: translateY(-35px);
+    direction: ltr;
+    gap: 12px; 
+}
+
+/* ۱. آیکون‌ها */
+.action-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.action-icons .icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* ۲ و ۳. تگ‌های رنگی */
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    height: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.badge-red {
+    background-color: #E1797D;
+    color: #FFFFFF;
+}
+
+.badge-green {
+    background-color: #EDF7C7;
+    color: #424242;
+}
+
+.white-dot {
+    width: 19px;
+    height: 19px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* بخش منشن و آواتارهای روی هم */
+.mention-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 69px;
+    height: 35px;
+    background-color: #F8FAFF;
+    padding: 2px 6px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    direction: ltr; /* جهت ثابت برای هم‌پوشانی درست آواتارها */
+}
+
+.at-sign {
+    color: #8C8C8C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-right: 2px;
+}
+
+.avatar-group {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-group svg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.avatar-circle-text {
+
+width: 13px;
+
+height: 13px;
+
+border-radius: 50%;
+
+background-color: #C8F9ED;
+border: 1.5px solid #424242;
+font-size: 11px;
+
+font-weight: bold;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+}
+
+
+
+.avatar-circle-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FDD4C7; /* بوردر هلویی */
+    box-sizing: border-box;   /* محاسبه ضخامت بوردر داخل ابعاد کلی */
+    overflow: hidden;         /* جلوگیری از بیرون زدن محتوای تصویر */
+    margin-left: -15px;       /* هم‌پوشانی */
+    z-index: 2;
+    flex-shrink: 0;
+}
+.line-divider1{
+    margin-top: -30px;
+}
+.user-mention{
+    color: #00002C;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.feedback-toolbar2 {
+    width: 100%;
+    height: 313px;
+    background-color: #F0F4FA;
+    border-radius: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ردیف بالایی */
+.toolbar2-header {
+    width: 100%;
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   کاربر - سمت راست
+   ========================= */
+
+.toolbar2-user {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar2-user-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #424242;
+    white-space: nowrap;
+    direction: rtl;
+}
+
+
+/* =========================
+   ابزارها - سمت چپ
+   ========================= */
+
+.toolbar2-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    direction: ltr;
+}
+
+
+/* آیکون‌ها */
+.action-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/* دکمه آیکون */
+.action-icons .icon-btn {
+    width: 20px;
+    height: 20px;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   Badge وضعیت
+   ========================= */
+
+.toolbar2-actions .status-badge {
+    height: 25px;
+
+    padding: 4px 12px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   Mention
+   ========================= */
+
+.toolbar2-actions .mention-section {
+    width: 69px;
+    height: 35px;
+
+    padding: 2px 6px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #F8FAFF;
+    border-radius: 12px;
+
+    direction: ltr;
+}
+
+
+.toolbar2-actions .avatar-group {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   خط جداکننده
+   ========================= */
+
+.feedback-toolbar2 .line-divider3 {
+    width: calc(100% + 32px); /* جبران پدینگ چپ و راست */
+    margin-right: -16px;       /* لبه راست کارت */
+    margin-left: -16px;        /* لبه چپ کارت */
+    border: none;
+    margin-top: 5px;
+    border-top: 1px solid #C9CCD3;
+}
+.toolbar-name{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    color: #424242;
+}
+.toolbar2-txt{
+    color: #00002C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    
+}
+
+.toolbar2-content {
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    overflow-y: auto;
+    padding-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* متن */
+.toolbar2-txt {
+    width: 100%;
+    padding: 8px;
+    color: #00002C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+
+    text-align: right;
+    direction: rtl;
+
+    margin: 0;
+}
+
+/* عکس */
+.toolbar2-image {
+    width: 100%;
+    max-width: 663px;
+    height: 110px;
+
+    border: 1px solid #B2C6E3;
+    
+
+    object-fit: cover;
+    display: block;
+
+    align-self: center;
+}
+/* باکس اصلی کارت */
+.feedback-toolbar3 {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #F0F4FA;
+    border-radius: 12px;
+    direction: rtl;
+}
+
+/* سطر بالا: چیدمان اسم و ابزارها */
+.toolbar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* اطلاعات کاربر (پروفایل) */
+.user-toolbar3 {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #00002C;
+    white-space: nowrap;
+}
+
+/* بخش سمت چپ ابزارها */
+.icon-toolbar3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    direction: ltr;
+}
+
+.icon-toolbar3 > svg {
+    width: 92px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* نشان تایید شده */
+.status-toolbar3 {
+    width: 91px;
+    height: 25px;
+    padding: 4px 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #75B56B;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    white-space: nowrap;
+    direction: rtl;
+    flex-shrink: 0;
+}
+
+.circle-status {
+    width: 19px;
+    height: 19px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* تایمر */
+.timer-toolbar3 {
+    width: 122px;
+    height: 26px;
+    padding: 3px 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background-color: #FEE9D0;
+    border-radius: 20px;
+    color: #424242;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    white-space: nowrap;
+    direction: ltr;
+    flex-shrink: 0;
+}
+
+.timer-toolbar3 > span:first-child {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.timer-toolbar3 svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
+/* خط جداکننده لبه‌به‌لبه */
+.toolbar-divider {
+    width: calc(100% + 32px);
+    height: 1px;
+    background-color: #C9CCD3;
+    margin-top: -5px;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+
+/* سطر پایین: ویس پلیر */
+
+/* کانتینر اصلی پخش‌کننده ویس */
+/* کانتینر اصلی پخش ویس */
+.audio-player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    direction: ltr; /* تغییر جهت چیدمان: انتقال تایمر به چپ و دکمه به راست */
+}
+/* دکمه پخش / توقف */
+.play-btn {
+    
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    outline: none;
+    transition: transform 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+.play-icon {
+    width: 38px;
+    height: 38px;
+    display: block;
+}
+
+/* کانتینر موج صوتی */
+.waveform-container {
+    flex: 1 1 auto; /* پر کردن هوشمند فضای خالی وسط */
+    display: flex;
+    align-items: center;
+    height: 21px;
+    min-width: 0; /* جلوگیری از سرریز شدن در صفحات کوچک */
+}
+
+.waveform {
+    width: 100%;
+    height: 21px;
+    display: block;
+}
+
+
+/* تایمر ویس */
+.audio-time {
+    width: 27px;
+    height: 25px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: 400;
+    color: #8C8C8C;
+    flex-shrink: 0;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    direction: ltr;
+    margin-left: 450px; /* این مقدار اتوماتیک تایمر را به انتهای سمت چپ می‌برد */
+}
